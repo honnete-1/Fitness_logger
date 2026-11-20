@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+backend/.venv/
+.venv/
+backend/db.sqlite3
+backend/db.sqlite3-journal
+backend/staticfiles/*
+!backend/staticfiles/.gitkeep
+.coverage
+htmlcov/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Node / frontend
+frontend/node_modules/
+frontend/dist/
+frontend/coverage/
+*.tsbuildinfo
+
+# Editors & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.log
+
+# Local tool config
+.claude/

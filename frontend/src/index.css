@@ -1,0 +1,105 @@
+@import "@fontsource-variable/dm-sans";
+@import "tailwindcss";
+
+/*
+ * Active Elegance design tokens.
+ * Every colour used in the UI comes from here; components use the generated
+ * Tailwind utilities (bg-ivory, text-ink, border-stone, …).
+ */
+@theme {
+  --font-sans: "DM Sans Variable", "DM Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* Brand palette (mandatory) */
+  --color-ink: #241c20; /* Charcoal – headings and body text */
+  --color-berry: #752a45; /* Deep Berry – primary actions, key stats */
+  --color-taupe: #b38d82; /* Muted Taupe – secondary accents (decorative only) */
+  --color-blush: #e8c9be; /* Blush Pink – soft backgrounds, chart accents */
+  --color-stone: #e9e5df; /* Warm Stone – borders, dividers */
+  --color-ivory: #faf8f5; /* Warm Ivory – page background */
+  --color-white: #ffffff; /* Cards */
+
+  /* Derived tones (tints/shades of the palette) */
+  --color-berry-deep: #5e2137; /* hover/pressed */
+  --color-berry-soft: #f5e9ec; /* active nav / subtle highlights */
+  --color-blush-soft: #f6ebe6;
+  --color-ink-muted: #6b5d62; /* secondary text – 5.9:1 on ivory */
+  --color-ink-subtle: #8a7c80; /* placeholder/labels – 3.6:1, large/non-essential text only */
+  --color-stone-deep: #d8d1c8; /* input borders */
+
+  /* Semantic */
+  --color-success: #2f6b4f;
+  --color-success-soft: #e7f1ec;
+  --color-warning: #8a5a12;
+  --color-warning-soft: #fbf1de;
+  --color-danger: #a3283b;
+  --color-danger-soft: #fbeaec;
+
+  --radius-card: 1.25rem;
+  --radius-field: 0.75rem;
+
+  --shadow-card: 0 1px 2px rgb(36 28 32 / 0.04), 0 4px 16px -6px rgb(36 28 32 / 0.08);
+  --shadow-lift: 0 2px 4px rgb(36 28 32 / 0.05), 0 12px 32px -12px rgb(36 28 32 / 0.18);
+
+  --animate-fade-up: fade-up 240ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  --animate-toast-in: toast-in 220ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  @keyframes toast-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px) scale(0.98);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    @apply bg-ivory font-sans text-ink antialiased;
+    font-feature-settings: "ss01", "tnum" 0;
+  }
+  ::selection {
+    background: var(--color-blush);
+    color: var(--color-ink);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-berry);
+    outline-offset: 2px;
+    border-radius: 0.5rem;
+  }
+  /* Numeric statistics align nicely */
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    opacity: 0.4;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

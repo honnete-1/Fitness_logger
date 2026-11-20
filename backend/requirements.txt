@@ -1,0 +1,8 @@
+Django>=5.2,<5.3
+djangorestframework>=3.16,<3.17
+dj-database-url>=2.3,<4
+whitenoise>=6.9,<7
+python-dotenv>=1.1,<2
+# Production only (Linux hosts): WSGI server and PostgreSQL driver
+gunicorn>=23,<28
+psycopg[binary]>=3.2,<4
